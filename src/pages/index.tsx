@@ -9,7 +9,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Dashboard</title>
       </Head>
-      <div className='flex gap-[35px]'>
+      <div className='flex flex-wrap  gap-[35px]'>
         <AddCustomer />
         <Customers />
       </div>

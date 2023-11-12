@@ -1,26 +1,24 @@
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import Image from 'next/image';
-import { deleteCustomerAction, getCustomersAction } from '../../store/actionTypes';
 import editeImg from '../../img/Edit.svg';
 import deleteImg from '../../img/Trash.svg';
 import { deleteCustomer, setCurrentData } from '../../store/slices/customersSlice';
 import { ICustomers } from '../../store/slices/customersTypes';
+import { customersSelector } from '../../store/selectors';
 
 
 
 const Customers = () => {
   const dispatch = useAppDispatch();
-  const { customers } = useAppSelector((state) => state.customersSlice);
+  const { customers } = useAppSelector(customersSelector);
   
-
-const handleDelete = (id:string) => {
+  const handleDelete = (id:string) => {
     dispatch(deleteCustomer(id))
-}
-const handleChange = (data:ICustomers) => {
+ }
+  const handleChange = (data:ICustomers) => {
     dispatch(setCurrentData(data))
-}
-
+ }
 
   return (
     <div className="flex flex-col flex-1 gap-[20px] p-[40px] ">
